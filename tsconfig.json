@@ -6,13 +6,21 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
     "lib": [
       "ESNext"
     ],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
   },
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
-    "src/generated/**/*"
+    "src/generated/**/*",
+    "dist",
+    "node_modules",
+    "*.config.*"
   ]
 }
