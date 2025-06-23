@@ -45,7 +45,20 @@ app.get('/seed', async (c) => {
       }
     ]
   })
-  return c.text('seeded successfully');
+  return c.text(user.count + 'users seeded successfully');
+});
+
+app.post('/update', async (c) => {
+  const prisma = getPrisma(c.env.DATABASE_URL);
+  const { id, name, email } = await c.req.json();
+  if (!id || !name || !email) {
+    return c.json({ error: 'Missing required fields' }, 400);
+  }
+  const updatedUser = await prisma.user.update({
+    where: { id },
+    data: { name, email }
+  });
+  return c.json(updatedUser, 200);
 });
 
 export default app
