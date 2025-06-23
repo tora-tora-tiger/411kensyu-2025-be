@@ -15,7 +15,7 @@ const app = new Hono<{
 
 app.get('/', (c) => {
   return c.text('Hello, World!')
-})
+});
 
 app.get('/table', async (c) => {
   // Now you can use it wherever you want
@@ -24,6 +24,28 @@ app.get('/table', async (c) => {
   const users = await prisma.user.findMany();
 
   return c.json(users, 200)
-})
+});
+
+app.get('/seed', async (c) => {
+  const prisma = getPrisma(c.env.DATABASE_URL);
+
+  const user = await prisma.user.createMany({
+    data: [
+      {
+        name: 'John Doe',
+        email: 'user1@example.com'
+      },
+      {
+        name: 'Kakua Doe',
+        email: 'user2@example.com'
+      },
+      {
+        name: 'Eguchi Doe',
+        email: 'user3@example.com'
+      }
+    ]
+  })
+  return c.text('seeded successfully');
+});
 
 export default app
