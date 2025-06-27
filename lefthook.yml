@@ -15,7 +15,7 @@ pre-commit:
     git-update:
       run: git update-index --again
 
-# pre-push:
-#   commands:
-#     fix:
-#       run: npm run fix
+pre-push:
+  commands:
+    fix:
+      run: npm run fix

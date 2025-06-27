@@ -50,7 +50,7 @@ app.get('/seed', async (c) => {
 
 app.post('/update', async (c) => {
   const prisma = getPrisma(c.env.DATABASE_URL);
-  const { id, name, email } = await c.req.json();
+  const { id, name, email }: { id: number; name: string; email: string } = await c.req.json();
   if (!id || !name || !email) {
     return c.json({ error: 'Missing required fields' }, 400);
   }

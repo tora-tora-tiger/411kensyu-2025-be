@@ -4,6 +4,7 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "fix": "eslint --fix . && prettier --write .",
     "generate": "dotenv -e .dev.vars -- npx prisma generate",
     "migrate:dev": "dotenv -e .dev.vars -- npx prisma migrate dev"
   },
@@ -19,8 +20,13 @@
     "@cloudflare/workers-types": "^4.20250614.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@hono/eslint-config": "^2.0.2",
     "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^24.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "eslint": "^9.29.0",
+    "prettier": "^3.6.0",
     "typescript": "^5.8.3",
     "wrangler": "^4.4.0"
   }
