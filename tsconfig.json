@@ -8,19 +8,10 @@
     "skipLibCheck": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/generated/**/*",
-    "dist",
-    "node_modules",
-    "*.config.*"
-  ]
+  "include": ["src/*"],
+  "exclude": ["src/generated/**/*", "dist", "node_modules", "*.config.*"]
 }
