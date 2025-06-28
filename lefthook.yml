@@ -6,9 +6,6 @@ commit-msg:
 
 pre-commit:
   commands:
-    typegen:
-      run: npm run cf-typegen
-
     generate:
       run: npm run generate
 
